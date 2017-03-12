@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170312152047) do
+ActiveRecord::Schema.define(version: 20170312152449) do
 
   create_table "calendars", force: :cascade do |t|
     t.integer  "year"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20170312152047) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "series_id"
+    t.string   "secret"
   end
 
   add_index "feeds", ["series_id"], name: "index_feeds_on_series_id"

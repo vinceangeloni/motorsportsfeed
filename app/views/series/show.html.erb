@@ -5,12 +5,10 @@
       <h3>Latest <%=t '.title', :default => @series.name %> News</h3>
     </div>
 
-    <% @rss_results.each do |articles| %>
     <div class="col-xs-4">
       <div class="panel panel-default">
         <div class="panel-body">
-          <%= articles[:date].strftime(“Published: %F”) %>
-          <h4 class="media-heading"><a href="<%= articles[:link] %>" title="<%= articles[:title] %>"><%= articles[:title] %></a></h4>
+          <h4 class="media-heading"><a href="<%= @feed.title %>" title="<%= articles[:title] %>">@feed.title</a></h4>
           <p><%= articles[:description] %></p>
           <span class="label label-default"><%= articles[:source] %></span>
         </div>
