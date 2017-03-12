@@ -15,7 +15,7 @@ SuperfeedrEngine::Engine.host = "motorsportsfeed.herokuapp.com" # Your hostname 
 SuperfeedrEngine::Engine.login = "vinceangeloni"
 
 # Token value. Make sure it has the associated rights your application needs
-SuperfeedrEngine::Engine.password = "07db7538bf2588fe77dccbcbf9619cc0"
+SuperfeedrEngine::Engine.password = "976d3feaabbaaee037b33cb184bcf3aa"
 
 # Scheme for your webhooks. Defaults to "http", but you should use https in production.
 SuperfeedrEngine::Engine.scheme = "http"
