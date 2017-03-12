@@ -4,6 +4,17 @@ Rails.application.routes.draw do
   mount SuperfeedrEngine::Engine => SuperfeedrEngine::Engine.base_path
   resources :series
   resources :calendars
+  resources :entries
+
+  resources :feeds do
+    member do
+      get 'retrieve'
+    end
+  end
+
+  root :to => 'entries#index'
+
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
