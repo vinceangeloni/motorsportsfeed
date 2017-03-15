@@ -10,8 +10,32 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
  */
 
-body { padding-top: 70px; }
+// Custom bootstrap variables must be set or imported *before* bootstrap.
+@import "bootstrap";
+
+
+// Structure
+body { padding-top: 80px; }
+
+// Colors
+$grey-light: #F6F8F9;
+
+// Stories
+.story {
+	&.single-line {
+		padding-bottom: 40px;
+		.story-image {
+			background: $grey-light;
+			border-radius: 8px;
+			overflow: hidden;
+			margin-top: 5px;
+
+			img {
+				width: 100%;
+				display: block;
+			}
+		}
+	}
+}

@@ -4,7 +4,9 @@ class EntriesController < ApplicationController
   # GET /entries
   # GET /entries.json
   def index
-    @entries = Entry.all
+    @entries = Entry.all.order(:created_at).page params[:page]
+
+
   end
 
   # GET /entries/1
@@ -12,15 +14,6 @@ class EntriesController < ApplicationController
   def show
   end
 
-  # DELETE /entries/1
-  # DELETE /entries/1.json
-  def destroy
-    @entry.destroy
-    respond_to do |format|
-      format.html { redirect_to entries_url, notice: 'Entry was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

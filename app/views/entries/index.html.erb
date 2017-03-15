@@ -1,13 +1,13 @@
-<%- model_class = Series -%>
 <div class="row">
-  <div class="col-12">
-    <div class="page-header pb-4">
-      <h3>Latest <%=t '.title', :default => @series.name %> News</h3>
-    </div>
+  <div class="col-sm-12">
+      
+    <h3 class="pb-4">Latest News</h3>
 
-    <% @entries.each do |entry| %>
-    <% @feed = Feed.find(entry.feed_id) %>
-    <div class="story single-line row">
+<% @entries.order(:created_at).each do |entry| %>
+<% @feed = Feed.find(entry.feed_id) %>
+<% @series = Series.find(@feed.series_id) %>
+
+      <div class="story single-line row">
         <% if entry.image? %>
         <div class="col-sm-3">
           <div class="story-image">
@@ -20,10 +20,11 @@
             <small class="text-muted pb-2">Published <%= entry.created_at.strftime("%m/%d/%Y") %></small>
             <h5 class="card-title"><a href="<%= entry.url %>" title="<%= entry.title %>"><%= entry.title %></a></h5>
             <p class="card-text"> <%= truncate(entry.content,:length => 240) %></p>
+            <small><a href="series/<%= @series.id %>"><%= @series.name %></a></small>
           </div>
         </div>
       </div>
-    <% end %>
+<% end %>
   </div>
 </div>
 <div class="row text-center">
